@@ -1,0 +1,1 @@
+{"version":3,"sources":["roboto.css"],"names":[],"mappings":"AAAA,A,WACI,oB,CACA,gJ,CACA,kB","file":"roboto.css","sourcesContent":["@font-face {\n    font-family: 'Roboto';\n    src: local('Roboto'), local('Roboto-Regular'), url('Roboto.woff2') format('woff2'), url('Roboto.woff') format('woff'), url('Roboto.ttf') format('truetype');\n    font-style: normal;\n}\n"]}
