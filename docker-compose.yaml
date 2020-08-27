@@ -1,0 +1,35 @@
+version: "3.5"
+
+services:
+  php:
+    build:
+      context: ./php
+      args:
+        UID: "${UID}"
+        GID: "${GID}"
+    volumes:
+      - ${LOCAL_SOCKET_PATH}:${CONTAINER_SOCKET_PATH}
+      - ${LOCAL_SRC_ROOT}:${CONTAINER_SRC_ROOT}
+      - ./php/conf/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
+      - ./php/conf/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./php/conf/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    ports:
+      - 127.0.0.1:${DEBUG_HOST_MACHINE_PORT}:9000
+  nginx:
+    build:
+      context: ./nginx
+      args:
+        UID: "${UID}"
+        GID: "${GID}"
+    volumes:
+      - ./nginx/logs:/var/log/nginx/
+      - ${LOCAL_SOCKET_PATH}:${CONTAINER_SOCKET_PATH}
+      - ${LOCAL_SRC_ROOT}:${CONTAINER_SRC_ROOT}
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf/site.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - ${WEB_HOST_MACHINE_PORT}:80
+    depends_on:
+      - php
+    links:
+      - php
