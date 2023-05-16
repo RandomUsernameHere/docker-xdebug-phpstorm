@@ -1,6 +1,21 @@
 # docker-xdebug-phpstorm
 Тренировочный репозиторий для создания окружения при обучении Laravel ( https://www.youtube.com/watch?v=qxGlQZIbpHM )
 
+## Запуск
+Создайте файл `.env`
+
+```shell
+cp .env.example .env
+```
+
+Заполните значения переменных `INTERFACE`, `UID`, `GID`.
+
+Выполните команду:
+
+```shell
+docker-compose up --build
+```
+
 ## Dockerfile
 
 Ищем докер-образ тут https://hub.docker.com/_/php?tab=tags
