@@ -1,4 +1,4 @@
-FROM php:7.4.9-fpm-alpine
+FROM php:8.1.19-fpm-alpine
 
 ARG UID
 ARG GID
@@ -46,6 +46,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
 # Install PHP extensions
 RUN  docker-php-ext-install \
 bcmath \
+mysqli \
 pdo_mysql \
 gd \
 zip \

@@ -4,7 +4,7 @@
 ## Dockerfile
 
 Ищем докер-образ тут https://hub.docker.com/_/php?tab=tags
-В данном конкретном случае использован php:7.4.9-fpm-alpine .
+В данном конкретном случае использован php:8.1.19-fpm-alpine .
 
 Список дополнительных пакетов:
 
@@ -43,6 +43,7 @@
 Расширения php:
 
 * bcmath - математика
+* mysqli - MySQL
 * pdo_mysql - драйвер PDO MySQL
 * pdo_pgsql - драйвер PDO PostgreSQL
 * gd - работа с графикой
